@@ -1,7 +1,8 @@
 import { useRouter } from "next/router";
-import Articles from "../components/articles";
-import Query from "../components/query";
-import CATEGORY_ARTICLES_QUERY from "../apollo/queries/category/articles";
+import Articles from "../../components/articles";
+import Query from "../../components/query";
+import CATEGORY_ARTICLES_QUERY from "../../apollo/queries/category/articles";
+import withLocale from '../../hocs/withLocale';
 
 const Category = () => {
   const router = useRouter();
@@ -24,4 +25,4 @@ const Category = () => {
   );
 };
 
-export default Category;
+export default withLocale(Category);

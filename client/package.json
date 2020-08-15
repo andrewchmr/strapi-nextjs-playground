@@ -26,5 +26,10 @@
     "react-dom": "16.13.1",
     "react-markdown": "^4.3.1",
     "react-moment": "^0.9.7"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.46",
+    "next-server": "^9.0.5",
+    "typescript": "^3.9.7"
   }
 }

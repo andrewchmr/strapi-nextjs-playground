@@ -1,8 +1,9 @@
 import { useRouter } from "next/router";
-import Query from "../components/query";
+import Query from "../../components/query";
 import ReactMarkdown from "react-markdown";
 import Moment from "react-moment";
-import ARTICLE_QUERY from "../apollo/queries/article/article";
+import ARTICLE_QUERY from "../../apollo/queries/article/article";
+import withLocale from '../../hocs/withLocale';
 
 const Article = () => {
   const router = useRouter();
@@ -40,4 +41,4 @@ const Article = () => {
   );
 };
 
-export default Article;
+export default withLocale(Article);

@@ -37,6 +37,9 @@
     },
     "title_hr": {
       "type": "string"
+    },
+    "title_pl": {
+      "type": "string"
     }
   }
 }

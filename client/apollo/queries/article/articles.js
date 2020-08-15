@@ -6,7 +6,7 @@ const ARTICLES_QUERY = gql`
       id
       title
       title_en
-      title_hr
+      title_pl
       category {
         id
         name

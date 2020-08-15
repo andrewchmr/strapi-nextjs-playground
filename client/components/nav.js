@@ -2,8 +2,12 @@ import React from "react";
 import Link from "next/link"
 import Query from "./query";
 import CATEGORIES_QUERY from "../apollo/queries/category/categories";
+import useTranslation from '../hooks/useTranslation';
+import LocaleSwitcher from '../components/LocaleSwitcher';
 
 const Nav = () => {
+  const { locale } = useTranslation();
+
   return (
     <div>
       <Query query={CATEGORIES_QUERY} id={null}>
@@ -14,12 +18,13 @@ const Nav = () => {
                 <div className="uk-navbar-left">
                   <ul className="uk-navbar-nav">
                     <li>
-                      <Link href="/">
+                      <Link href="/[lang]" as={`/${locale}`}>
                         <a>Strapi Blog</a>
                       </Link>
                     </li>
                   </ul>
                 </div>
+                <LocaleSwitcher />
 
                 <div className="uk-navbar-right">
                   <ul className="uk-navbar-nav">
@@ -28,8 +33,13 @@ const Nav = () => {
                         <li key={category.id}>
                           <Link
                             href={{
-                              pathname: "category",
-                              query: { id: category.id }
+                              pathname: "/[lang]/category",
+                              query: { id: category.id },
+                            }}
+
+                            as={{
+                              pathname: `/${locale}/category`,
+                              query: { id: category.id },
                             }}
                           >
                             <a className="uk-link-reset">{category.name}</a>
