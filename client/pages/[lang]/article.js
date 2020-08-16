@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import Query from "../../components/query";
+import Layout from "../../components/Layout";
 import ReactMarkdown from "react-markdown";
 import Moment from "react-moment";
 import ARTICLE_QUERY from "../../apollo/queries/article/article";
@@ -7,7 +8,9 @@ import withLocale from '../../hocs/withLocale';
 
 const Article = () => {
   const router = useRouter();
+
   return (
+    <Layout titleKey={'Article'}>
     <Query query={ARTICLE_QUERY} id={router.query.id}>
       {({ data: { article } }) => {
         const imageUrl =
@@ -15,7 +18,7 @@ const Article = () => {
             ? article.image[0].url
             : process.env.API_URL + article.image[0].url;
         return (
-          <div>
+          <>
             <div
               id="banner"
               className="uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light uk-padding uk-margin"
@@ -34,10 +37,11 @@ const Article = () => {
                 </p>
               </div>
             </div>
-          </div>
+            </>
         );
       }}
     </Query>
+    </Layout>
   );
 };
 

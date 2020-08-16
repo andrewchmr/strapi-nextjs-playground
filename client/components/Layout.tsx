@@ -12,7 +12,7 @@ const Layout: React.FC<Props> = ({ titleKey, children }) => {
       <Head>
         <title>{titleKey}</title>
       </Head>
-      <Nav/>
+      <Nav />
       <>{children}</>
     </>
   )
